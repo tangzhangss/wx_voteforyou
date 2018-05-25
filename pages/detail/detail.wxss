@@ -1,0 +1,120 @@
+.head{
+  position: relative;
+  width:98%;
+  border-radius:20rpx;
+  margin: 5rpx auto;
+  overflow: hidden;
+}
+.head .info{
+  position: absolute;
+  top: 20rpx;
+  left: 35%;
+  width: 200rpx;
+}
+.head .info image{
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 200rpx;
+}
+.head .info text{
+  display: block;
+  width: 200rpx;
+  color: white;
+  text-align: center;
+}
+
+.title{
+  width: 95%;
+  margin:  0 auto;
+  border-radius: 20rpx 20rpx 0  0;
+  padding: 10rpx;
+  background-color: white;
+  font-size: 50rpx;
+}
+.opts{
+  width:95%;
+  margin:  0 auto;
+  border-radius: 0  0 20rpx 20rpx;
+  background-color: white;
+  margin-top: 1px;
+  padding: 10rpx;
+  overflow: hidden;
+}
+.opt{
+  display: block;
+  margin-bottom: 20rpx;
+}
+.prompt{
+  font-size: 30rpx;
+  display: block;
+  color: rgba(0, 0, 0, 0.5);
+}
+.saveVoteres{
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color:#1AAD19;
+  width: 95%;
+  margin: 0 auto;
+  border-radius:20rpx;
+  text-align: center;
+  color: white; 
+  margin-top: 30rpx;
+}
+.endvote{
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color:red;
+  width: 95%;
+  margin: 0 auto;
+  border-radius:20rpx;
+  text-align: center;
+  color: white; 
+  margin-top: 30rpx;
+}
+.saveVoteres2{
+   height: 70rpx;
+  line-height: 70rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 95%;
+  margin: 0 auto;
+  border-radius:20rpx;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5); 
+  margin-top: 30rpx;
+}
+.sign{
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+  font-size: 40rpx;
+  margin-top: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.one{
+  height: 150rpx;
+  width:150rpx;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+}
+.one image{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius:100rpx; 
+}
+.one .uname{
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 200rpx;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 25rpx;
+}
+.userdetail{
+  clear: left;
+  float:right;
+  color: green;
+  font-size: 35rpx;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,46 @@
+<view class="container">
+  <view class='head'>
+     <image src='../../images/vote.jpg' style='width:100%;height:300rpx;opacity:0.3;border-radius:20rpx;' ></image>
+     <view class='info'>
+        <image src='{{votemain.image}}'></image>
+        <text>{{votemain.name}}</text>
+     </view>
+  </view>
+  <view class='title'>
+     <view>{{votemain.title}}</view>
+     <view style='color：#ccc;font-size:35rpx;'>{{votemain.votedesc}}</view>
+     <text class='prompt'>可选项:  {{votemain.votetype}}</text>
+     <text class='prompt'>截止时间:  {{votemain.endtime}}</text>
+     <text class='prompt'>参与人数:  {{userinfo.length}}</text>
+  </view>
+  <view class='opts'>
+      <checkbox-group wx:if="{{votemain.votetype > 1}}" bindchange="checkboxChange">
+       <label class="opt" wx:for="{{optioninfo}}" wx:key="">
+            <checkbox value="{{item.id}}"/><text>{{item.vdesc}}</text><text class='prompt'>({{item.sum}}  次选择)</text>
+            <progress percent="{{item.rate}}" show-info active activeColor='#85d7aa'/>
+       </label>
+  </checkbox-group>
+  <radio-group wx:if="{{votemain.votetype == 1}}" bindchange="radioChange">
+     <label class="opt" wx:for="{{optioninfo}}" wx:key="">
+        <radio value="{{item.id}}"/><text>{{item.vdesc}}</text><text class='prompt'>({{item.sum}}  次选择)</text>
+        <progress percent="{{item.rate}}" show-info active activeColor='#85d7aa'/>
+      </label>
+
+</radio-group>
+  </view>
+  <button class='saveVoteres' catchtap='' wx:if="{{votemain.end == 1}}" open-type="getUserInfo" bindgetuserinfo='saveVoteres'>点我投票</button>
+  <view class='saveVoteres2' wx:else>已结束</view>
+  
+   <view class='endvote' catchtap='endvote'  hidden="{{!admin || votemain.end == 2}}">提前结束投票</view>
+  <view class='sign'>---已投票用户---</view>
+
+    <block wx:for="{{userinfo}}" wx:key="">
+      <view class='one'>
+         <image src='{{item.image}}'></image>
+          <view class='uname'>{{item.name}}</view>
+      </view>
+    </block>
+
+    <view catchtap='openVotedetail'  class='userdetail' wx:if="{{userinfo.length > 0  && votemain.isanonymous == 1}}">查看投票详情></view>
+     <view class='userdetail' wx:if="{{userinfo.length > 0  &&votemain.isanonymous == 2}}">匿名投票不可查看详情></view>
+</view>

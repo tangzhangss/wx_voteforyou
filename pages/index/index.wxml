@@ -1,0 +1,52 @@
+<view class="page">
+    <view style='color:rgba(0,0,0,0.4);font-size:20rpx;text-align:center'>--下拉刷新，最后刷新时间:{{refreshtime}}--</view>
+
+    <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                <view  class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">公告</view>
+                        <view class="weui-media-box__desc">欢迎创建您的投票，邀请大家一起投票吧</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    
+    <template name="votelist">
+          <block wx:for="{{votelist}}" wx:key="">
+        <view class='one' catchtap='toVoteDetail' id="{{item.id}}">
+           <view class='left'> 
+             <image src='{{item.image}}' mode="aspectFill"></image>
+           </view>
+           <view class='right'>
+             <view class='name'>
+                <image src='{{item.logo}}'></image><text>{{item.name}}</text>
+                <image style="width:30rpx; height:30rpx;" 
+             src="{{item.gender == 1?'../../images/sex_men.png':item.gender == 2?'../../images/sex_women.png':'../../images/sex_no.png'}}"></image>
+
+             </view>
+             <view class='title'>
+                 {{item.title}}
+             </view>
+             <view class='anno public' wx:if="{{item.isanonymous==1}}">
+               公开
+             </view>
+              <view class='anno private' wx:if="{{item.isanonymous==2}}">
+               匿名
+             </view>
+             <view class='time'>
+                开始:{{item.starttime}}   截止:{{item.endtime}}
+             </view>
+           </view>
+
+           <image class='mark' src="{{item.end == 1 ? '../../images/start.png':'../../images/end.png'}}"></image>
+        </view>
+    </block>
+    </template>
+    <template is="votelist" data="{{votelist}}"></template>
+</view>

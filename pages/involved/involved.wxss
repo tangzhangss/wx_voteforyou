@@ -1,0 +1,4 @@
+@import "../index/index.wxss";
+.weui-tab {
+    background: #FFF;
+}

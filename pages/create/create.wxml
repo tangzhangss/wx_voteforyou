@@ -1,0 +1,91 @@
+<view class="page">
+    <view class="page__bd">
+        <input class='titletext' bindinput="set_title_text" placeholder='请输出投票的标题(1-15个字)' placeholder-style='color:#ccc' type="text" value='{{write.title}}'/>
+               
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea bindinput='set_content' class="weui-textarea" placeholder="请填写投票内容说明(2-80个字)" style="height: 3.3em;" placeholder-style='color:#ccc' value='{{write.text}}'/>
+                    <view class="weui-textarea-counter">{{votepack.text.length}}/80</view>
+                </view>
+            </view>
+        </view>
+        
+
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input" wx:for-items="{{optionList}}" wx:key="{{index}}">
+                <view class="weui-cell__hd">
+                    <image bindtap="delOption" src="{{item.icon}}" class="option-icon" data-index="{{index}}"></image>
+                </view>
+                <view class="weui-cell__bd"><input bindinput="recordValue" class="weui-input"  data-index="{{index}}" value="{{item.value}}" placeholder="选项{{index + 1}}（不得操作15个字符）" placeholder-style='color:#ccc' /></view>
+            </view>
+            <view class="weui-cell" bindtap="addOption" wx:if="{{showAddBtn}}" >
+                <view class="weui-cell__hd">
+                    <image src="/images/common/4.png" class="option-icon"></image>
+                </view>
+                <view class="weui-cell__bd">添加选项</view>
+            </view>
+        </view>
+        <view class="weui-cells__tips">最多支持15个选项，每个选项不超过40个字</view>
+
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">投票类型</view>
+                </view>
+                <text style='color:#ccc;font-size:12px;'>请输入可选项数:单选1，依次类推</text><input class='option_text' bindinput='set_option_count' value='{{votepack.voteOptionCount}}'></input>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">结束日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                   <picker mode="date" value="{{date}}" start="2015-09-01" end="2117-09-01" bindchange="bindDateChange">
+                        <view class="weui-select weui-select_in-select-after">{{date}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">结束时间</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                        <view class="weui-select weui-select_in-select-after">{{time}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_switch">
+                <view class="weui-cell__bd">匿名投票</view>
+                <view class="weui-cell__ft">
+                    <switch  color="blue" bindchange="set_anonymous"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__tips">开启后，发布者仍可查看投票人详情</view>
+        
+        <view class="weui-cells uploader-wrap">
+            <view class="uploader-text">选择图片</view>
+            <view class="weui-uploader">
+                <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                        <block wx:for-items="{{files}}" wx:key="{{index}}">
+                            <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                            </view>
+                        </block>
+                    </view>
+                    <view>
+                       <image src='{{votepack.image}}' style='height:100px;width:100px;margin-bottom:10px;' catchtap="chooseImage" mode='aspectFill'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__tips">可上传一张和投票主题相关的图片</view>
+        <view class='error' wx:if="{{showerrormsg}}">{{errormsg}}</view>
+        <view class="weui-btn-area">
+            <button class="weui-btn" open-type="getUserInfo" bindgetuserinfo='saveVote'>确认发布</button>
+        </view>
+
+    </view>
+</view>

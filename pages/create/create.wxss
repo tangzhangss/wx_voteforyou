@@ -1,0 +1,59 @@
+
+.option-icon {
+    margin-right: 5px;
+    vertical-align: middle;
+    width:20px;
+    height: 20px;
+}
+.weui-select_in-select-after {
+    text-align: right;
+}
+
+.uploader-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+.uploader-text {
+    float: left;
+    height: 98px;
+    line-height: 98px;
+    padding-left: 15px;
+    margin-right: 20px;
+}
+.weui-uploader {
+    float: left;
+    padding-top: 9px;
+}
+
+.weui-select{
+  border: none;
+}
+.titletext{
+   background-color: white;
+   height: 80rpx;
+   line-height:80rpx;
+   margin:0 auto;
+   margin-top: 30rpx;
+   padding-left:35rpx;
+}
+
+.option_text{
+ height: 35px;
+ line-height: 35px;
+ background-color: #f2f2f2;
+ border-radius: 5rpx;
+ margin:5px; 
+ width: 100rpx;
+ text-align: center;
+}
+
+.error{
+  font-size: 25rpx;
+  color: red;
+  margin: 20rpx;
+  margin-left: 30rpx;
+}
+.weui-btn{
+  background: #1AAD19;
+  color: white;
+}

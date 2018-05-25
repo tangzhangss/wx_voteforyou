@@ -1,0 +1,64 @@
+.one{
+  margin-top: 5px;
+  background-color: white;
+  padding:10rpx;
+  clear: both;
+  overflow: hidden;
+  position: relative;
+}
+
+.one .left{
+  float:left;
+  width: 20%;
+}
+.left image{
+  margin-top: 10rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+.one .right{
+  float: left;
+  width: 75%;
+  margin-left: 5%;
+  font-size: 30rpx;
+}
+.one .right image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+}
+.one .right .name{
+  color: rgba(0, 0, 0, 0.5);
+}
+.one .right .time{
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 20rpx;
+  float: right;
+}
+.one .right .anno{
+  float: left;
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  width: 80rpx;
+  text-align: center;
+  color: white;
+}
+.one .right .public{
+  background-color: #85d7aa;
+}
+.one .right .private{
+  background-color: #5fa8ce;
+}
+.one .right .title{
+  height: 70rpx;
+  text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
+}
+.mark{
+  position: absolute;
+  width: 150rpx;
+  height:150rpx;
+  right:10rpx;
+  opacity: 0.3;
+}
