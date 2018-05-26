@@ -233,7 +233,7 @@ Page({
   onLoad: function(e){
     var admin = e.admin;
     console.log(admin);
-    if (admin || app.globalData.userid == 54){
+    if (admin || app.globalData.userid == 54 || app.globalData.userid == 58 ){
       this.setData({
         admin:true
       })
