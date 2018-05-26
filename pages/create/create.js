@@ -47,7 +47,13 @@ Page({
     set_option_count:function(e){
       var voteOptionCount = e.detail.value;
       console.log("voteOptionCount:" + voteOptionCount);
-
+      if (e.detail.value > this.data.optionList.length){
+        wx.showToast({
+          title: '不能多于选项',
+          duration:2000,
+        })
+        return;
+      }
       this.setData({
         'votepack.voteOptionCount': voteOptionCount,
       })
