@@ -31,8 +31,6 @@ Page({
            anonymous:1,//1不匿名 2匿名
            image: app.globalData.host +"/wx_graduation_voteforyou/img/vote_default.png",//默认logo
         }
-
-        
     },
     //设置匿名
     set_anonymous:function(e){
@@ -92,9 +90,13 @@ Page({
       if (app.globalData.userid == null) {
         var userinfo = e.detail.userInfo;
         app.userLogin(userinfo);
+      
         setTimeout(()=>{
-          that.saveVote2();
+          if (app.globalData.userid != null){
+            that.saveVote2();
+          }
         },2000);
+
         return;
       }
 

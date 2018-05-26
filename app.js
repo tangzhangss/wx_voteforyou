@@ -3,8 +3,7 @@ App({
   globalData:{
     userinfo:null,
     userid:null,
-   //服务器地址
-    host:"https://blog.iamguao.work/",
+    host:"https://blog.iamguao.work",
   },
   //用户登录
   userLogin: function (userinfo) {

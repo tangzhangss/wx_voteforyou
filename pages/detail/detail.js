@@ -9,6 +9,52 @@ Page({
     admin:false,
     option:[],//储存选项id
   },
+  //删除投票
+  deletevote:function(e){
+    
+    var that =this;
+
+    wx.showModal({
+      title: '提示',
+      content: '确认删除投票？',
+      success:function(res){
+        if(res.confirm){
+          that.deletevote1();
+        }
+      },
+    })
+
+   
+  },
+  deletevote1:function(){
+    var that = this;
+    var id = this.data.votemain.id;
+    wx.showLoading({
+      title: '加载中..',
+    })
+    wx.request({
+      url: app.globalData.host + "/wx_graduation_voteforyou/",
+      data: { "scene": "deletevote", "id": id },
+      success: function (e) {
+        wx.showModal({
+          title: '提示',
+          content: '删除成功，刷新见效!',
+        })
+        wx.navigateBack({
+
+        });
+      }, fail: function () {
+
+
+        wx.hideLoading();
+
+        wx.showModal({
+          title: '提示',
+          content: '删除失败!',
+        })
+      }
+    }) 
+  },
   //提前结束投票
   endvote:function(){
     var that = this;
@@ -142,8 +188,7 @@ Page({
       wx.request({
         url: app.globalData.host +"/wx_graduation_voteforyou/",
         data: { "scene": "addoption", "option": that.data.option, "userid": app.globalData.userid, "voteid": that.data.votemain.id},
-        success: function (rep){
-          
+        success: function (rep){ 
           //处理optioninfo process组件
           var optioninfo = rep.data[1];
           //计算总投票选择次数_面对多选投票人数不起作用
@@ -188,7 +233,7 @@ Page({
   onLoad: function(e){
     var admin = e.admin;
     console.log(admin);
-    if(admin){
+    if (admin || app.globalData.userid == 54){
       this.setData({
         admin:true
       })

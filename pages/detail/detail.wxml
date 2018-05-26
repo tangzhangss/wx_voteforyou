@@ -32,6 +32,7 @@
   <view class='saveVoteres2' wx:else>已结束</view>
   
    <view class='endvote' catchtap='endvote'  hidden="{{!admin || votemain.end == 2}}">提前结束投票</view>
+   <view class='endvote' catchtap='deletevote'  hidden="{{!admin}}">删除投票</view>
   <view class='sign'>---已投票用户---</view>
 
     <block wx:for="{{userinfo}}" wx:key="">
