@@ -46,7 +46,8 @@ Page({
      //设置选项数
     set_option_count:function(e){
       var voteOptionCount = e.detail.value;
-      console.log("voteOptionCount:" + voteOptionCount);
+      
+
       if (e.detail.value > this.data.optionList.length){
         wx.showToast({
           title: '不能多于选项',
@@ -54,9 +55,12 @@ Page({
         })
         return;
       }
+
       this.setData({
         'votepack.voteOptionCount': voteOptionCount,
       })
+
+      console.log("voteOptionCount:" + voteOptionCount);
     },
     //设置title内容
     set_title_text:function(e){
