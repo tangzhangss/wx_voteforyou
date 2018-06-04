@@ -18,6 +18,10 @@
                     <import src="../index/index.wxml"/>
                      <template is="votelist" data="{{votelist}}"></template>
                 </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}" wx:if="{{userid==58||userid==54}}">
+                    <import src="../index/index.wxml"/>
+                     <template is="votelist" data="{{votelist}}"></template>
+                </view>
             </view>
         </view>
     </view>

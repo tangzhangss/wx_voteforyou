@@ -30,7 +30,7 @@
   </view>
   <button class='saveVoteres' catchtap='' wx:if="{{votemain.end == 1}}" open-type="getUserInfo" bindgetuserinfo='saveVoteres'>点我投票</button>
   <view class='saveVoteres2' wx:else>已结束</view>
-  
+  <view class='aduitvote' catchtap='aduitvote'  hidden="{{userid != 54 && userid != 58 && votemain.vshow != 1}}">通过审核</view>
    <view class='endvote' catchtap='endvote'  hidden="{{!admin || votemain.end == 2}}">提前结束投票</view>
    <view class='endvote' catchtap='deletevote'  hidden="{{!admin}}">删除投票</view>
   <view class='sign'>---已投票用户---</view>

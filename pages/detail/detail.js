@@ -8,6 +8,7 @@ Page({
     userinfo:[],
     admin:false,
     option:[],//储存选项id
+    userid:null,
   },
   //删除投票
   deletevote:function(e){
@@ -23,8 +24,28 @@ Page({
         }
       },
     })
+  },
+  //审核投票通过
+  aduitvote:function(){
+    var that = this;
+    var id = this.data.votemain.id;
+    wx.showLoading({
+      title: '加载中..',
+    })
+    wx.request({
+      url: app.globalData.host + "/wx_graduation_voteforyou/",
+      data: { "scene": "aduitvote", "id": id },
+      success: function (e) {
+       wx.showToast({
+         title: '已通过!',
+       })
+        wx.navigateBack({
 
-   
+        });
+      }, fail: function () {
+        wx.hideLoading();
+      }
+    }) 
   },
   deletevote1:function(){
     var that = this;
@@ -235,7 +256,8 @@ Page({
     console.log(admin);
     if (admin || app.globalData.userid == 54 || app.globalData.userid == 58 ){
       this.setData({
-        admin:true
+        admin:true,
+        userid: app.globalData.userid
       })
     }
 

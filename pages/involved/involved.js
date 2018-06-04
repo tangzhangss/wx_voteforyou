@@ -4,7 +4,7 @@ const app = getApp();
 Page({
     data: {
         userid:null,//用户id
-        tabs: ["我发起的", "我参与的"],
+        tabs: ["我发起的", "我参与的","审核"],
         activeIndex: 0,
         sliderOffset: 0,
         votelist:"",
@@ -96,8 +96,6 @@ Page({
         })
         return;
       }
-      
-      
       wx.showLoading({
         title: '加载中...',
       })
@@ -126,12 +124,35 @@ Page({
             wx.hideLoading();
           }
         })
-      }else{
+      }else if(a == 1){
         //获取投票列表_自己参与
         wx.request({
           url: app.globalData.host + "/wx_graduation_voteforyou/",
           data: { "scene": "get_vote_list_join", "id": id },
           success: function (res) {
+            console.log(res.data);
+            //处理时间
+            var votelist = res.data;
+
+            for (let i = 0; i < votelist.length; i++) {
+              votelist[i].starttime = app.processTime(votelist[i].starttime);
+              votelist[i].endtime = app.processTime(votelist[i].endtime);
+            }
+            that.setData({
+              votelist: votelist,
+            })
+            wx.hideLoading();
+          }, fail: function () {
+            wx.hideLoading();
+          }
+        })
+      }else{
+        //获取投票列表_自己参与
+        wx.request({
+          url: app.globalData.host + "/wx_graduation_voteforyou/",
+          data: {
+            "scene": "get_vote_list_audit", "id": id },
+            success: function (res) {
             console.log(res.data);
             //处理时间
             var votelist = res.data;

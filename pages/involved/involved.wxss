@@ -2,3 +2,10 @@
 .weui-tab {
     background: #FFF;
 }
+.notice{
+  text-align: center;
+  font-size: 20rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: red;
+}

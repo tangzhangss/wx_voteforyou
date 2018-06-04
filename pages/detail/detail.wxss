@@ -71,6 +71,17 @@
   color: white; 
   margin-top: 30rpx;
 }
+.aduitvote{
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color:#1AAD19;
+  width: 95%;
+  margin: 0 auto;
+  border-radius:20rpx;
+  text-align: center;
+  color: white; 
+  margin-top: 30rpx;
+}
 .saveVoteres2{
    height: 70rpx;
   line-height: 70rpx;
