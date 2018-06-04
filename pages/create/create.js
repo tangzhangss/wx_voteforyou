@@ -221,9 +221,15 @@ Page({
           that.setData({
             write:""
           });
-         //跳转投票详情页
-          wx.navigateTo({
-            url: '../detail/detail?id=' + rsp.data,
+          wx.showModal({
+            title: '提示',
+            content: '投票发起成功，我们将尽快审核',
+            complete:function(){
+              //跳转投票详情页
+              wx.navigateTo({
+                url: '../index/index',
+              })
+            }
           })
          
         },fail:function(){
