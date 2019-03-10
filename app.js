@@ -3,7 +3,7 @@ App({
   globalData:{
     userinfo:null,
     userid:null,
-    host:"https://www.iamguao.work",
+    host:"https://api.zyrs.xyz",
   },
   //用户登录
   userLogin: function (userinfo) {
