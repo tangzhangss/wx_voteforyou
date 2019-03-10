@@ -29,7 +29,7 @@ Page({
            voteOptionCount: 1,//投票的可选 选项数
            endTime:"",//结束时间
            anonymous:1,//1不匿名 2匿名
-           image: app.globalData.host +"/wx_graduation_voteforyou/img/vote_default.png",//默认logo
+           image: "/images/uploader/pic_160.png",//默认logo
         }
     },
     //设置匿名
