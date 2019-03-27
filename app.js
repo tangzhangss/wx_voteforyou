@@ -3,7 +3,7 @@ App({
   globalData:{
     userinfo:null,
     userid:null,
-    host:"https://api.zyrs.xyz",
+    host:"https://api.zyrs.xyz:10000",
   },
   //用户登录
   userLogin: function (userinfo) {

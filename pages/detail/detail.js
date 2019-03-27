@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
+
 Page({
   data: {
     votemain:{},
@@ -9,6 +10,12 @@ Page({
     admin:false,
     option:[],//储存选项id
     userid:null,
+    endtime:{
+    day:'05',
+    hour:'12',
+     minute:'50',
+      sek:'50'
+    }
   },
   //删除投票
   deletevote:function(e){
@@ -302,12 +309,70 @@ Page({
              userinfo:rep.data[2],
            })
            wx.hideLoading();
+
+          
+      
+         
+
          },
          fail:function(e){
            wx.hideLoading();
          }
        })
     },
+
+    //计算时间
+  computtime:function(){
+  var currenttime = new Date();
+  var votetime = this.data.votemain.endtime;
+  votetime = new Date(votetime);
+  //将时间换成时间戳
+  currenttime = Date.parse(currenttime);
+  votetime = Date.parse(votetime);
+
+
+  var temptime = votetime - currenttime;
+
+  //去掉毫秒数
+  temptime = temptime.toString().slice(0, -3);
+
+  console.log(currenttime, votetime, temptime);
+
+  var endtime = {};
+  endtime.sek = temptime % 60;
+  endtime.minute = parseInt(temptime / 60) % 60;
+  endtime.hour = parseInt(parseInt(temptime / 60) / 60) % 24;
+  endtime.day = parseInt(parseInt(parseInt(temptime / 60) / 60) / 24);
+    let sek1 = endtime.sek >= 10 ? '' : '0';
+    let minute1 = endtime.minute >= 10 ? '' : '0';
+    let hour1 = endtime.hour >= 10 ? '' : '0';
+    let day1 = endtime.day >= 10 ? '' : '0';
+    endtime.sek = sek1+ endtime.sek;
+    endtime.minute = minute1+ endtime.minute;
+    endtime.hour = hour1 + endtime.hour;
+    endtime.day = day1+ endtime.day;
+  //console.log(endtime);
+   
+  this.setData({
+    endtime: endtime
+  })
+  },
+  onShow:function(){ 
+//每秒执行一次该方法
+    var that =this;
+   that.computtime();
+    setTimeout(() => {
+       {
+        this.onShow();
+      }
+    }, 1000)
+
+    
+
+  },
+ 
+
+
    onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -324,4 +389,8 @@ Page({
       }
     }
   }
+
+
+
 })
+

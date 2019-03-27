@@ -129,3 +129,45 @@
   font-size: 35rpx;
   margin-right: 10rpx;
 }
+
+.time-box{
+  width:100%;
+  display: flex;
+  color: rgba(235, 226, 226, 0.918);
+  font-size:30rpx;
+ justify-content: center;
+ margin: 30rpx 0rpx;
+}
+.text{
+color: rgba(235, 226, 226, 0.918);
+background-color: rgba(238, 9, 9, 0.884);
+font-size:30rpx;
+margin:0rpx 15rpx;
+padding: 10rpx 20rpx;
+box-shadow: 1px 2px 3rpx 1px black;
+}
+.time{
+
+  display: flex;
+  color: rgba(235, 226, 226, 0.918);
+  font-size:40rpx;
+}
+
+.endtime{
+color: rgba(235, 226, 226, 0.918);
+background-color: hsla(0, 4%, 5%, 0.884);
+font-size:30rpx;
+margin: 5rpx 15rpx;
+padding: 10rpx 20rpx;
+ box-shadow: 1px 2px 3rpx 1px red;
+}
+
+.spot{
+  display: flex;
+  color: #0a0a0aea;
+  font-size:40rpx;
+  font-weight: 600;
+ margin: 0rpx,15rpx;
+}
+
+
